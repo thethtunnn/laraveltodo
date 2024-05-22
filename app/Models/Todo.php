@@ -9,15 +9,19 @@ class Todo extends Model
 {
     use HasFactory;
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function goal() {
+    public function goal()
+    {
         return $this->belongsTo(Goal::class);
-    } 
+    }
 
-    public function tags() {
+    public function tags()
+    {
+
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 }

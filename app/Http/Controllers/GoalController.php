@@ -15,12 +15,12 @@ class GoalController extends Controller
      */
     public function index()
     {
-        
+
         $goals = Auth::user()->goals;
         $tags = Auth::user()->tags;
- 
-         
-         return view('goals.index', compact('goals', 'tags'));
+
+
+        return view('goals.index', compact('goals', 'tags'));
     }
 
     // /**
@@ -94,6 +94,7 @@ class GoalController extends Controller
         $goal->user_id = Auth::id();
         $goal->save();
 
+
         return redirect()->route('goals.index');
     }
 
@@ -105,9 +106,14 @@ class GoalController extends Controller
      */
     public function destroy(Goal $goal)
     {
-       
+
         $goal->delete();
- 
-        return redirect()->route('goals.index');  
+
+        return redirect()->route('goals.index');
+    }
+
+    public function aa()
+    {
+        dd("dd");
     }
 }

@@ -25,19 +25,14 @@ use App\Http\Controllers\TagController;
 
 
 
-Auth::routes();
+
 
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [GoalController::class, 'index']);
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
     Route::resource('goals', GoalController::class)->only(['index', 'store', 'update', 'destroy']);
-
-
-
-
-
     Route::resource('goals.todos', TodoController::class)->only(['store', 'update', 'destroy']);
     Route::resource('tags', TagController::class)->only(['store', 'update', 'destroy']);
-});
+})->prefix('hello');

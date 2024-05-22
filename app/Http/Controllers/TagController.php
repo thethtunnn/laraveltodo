@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TagController extends Controller
 {
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -31,7 +31,7 @@ class TagController extends Controller
     }
 
 
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -50,7 +50,7 @@ class TagController extends Controller
         $tag->user_id = Auth::id();
         $tag->save();
 
-        return redirect()->route('goals.index'); 
+        return redirect()->route('goals.index');
     }
 
     /**
@@ -62,7 +62,7 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
- 
-         return redirect()->route('goals.index');
+
+        return redirect()->route('goals.index');
     }
 }
